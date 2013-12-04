@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Flipping Gallery by Pete R. | The Pete Design</title>
+	<meta name="title" content="jQuery Flipping Gallery by Pete R. | The Pete Design" />
+	<meta name="description" content="Create a Flipping Awesome 3D Gallery with One Function Call" />
+	<link rel="image_src" href="/images/flipping_gallery_image.png" />
+
+	<meta content="http://www.thepetedesign.com/demos/flipping_gallery_demo.html" property="og:url" />
+	<meta content="http://www.thepetedesign.com/images/flipping_gallery_image.png" property="og:image" />
+	<link rel="shortcut icon" id="favicon" href="favicon.png"> 
+	<meta name="author" content="Pete R.">
+	<link rel="canonical" href="http://www.thepetedesign.com/demos/flipping_gallery_demo.html" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='flipping_gallery.css' rel='stylesheet' type='text/css'>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="jquery.flipping_gallery.js"></script>
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      background: url(img/background.png);
+      padding: 0;
+      text-align: center;
+      font-family: 'open sans';
+      position: relative;
+      margin: 0;
+      height: 100%;
+    }
+    
+    .wrapper {
+    	height: auto !important;
+    	height: 100%;
+    	margin: 0 auto; 
+    	overflow: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    
+    
+    
+    h1, h2 {
+      width: 100%;
+      float: left;
+    }
+    h1 {
+      margin-top: 100px;
+      color: #00B0FF;
+      margin-bottom: 5px;
+      font-size: 70px;
+      letter-spacing: -4px;
+    }
+    h2 {
+      letter-spacing: 0px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 100;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .pointer {
+      color: #00B0FF;
+      font-family: 'Pacifico';
+      font-size: 24px;
+      margin-top: 15px;
+      position: absolute;
+      top: 130px;
+      right: -40px;
+    }
+    .pointer2 {
+      color: #00B0FF;
+      font-family: 'Pacifico';
+      font-size: 24px;
+      margin-top: 15px;
+      position: absolute;
+      top: 130px;
+      left: -40px;
+    }
+    pre {
+      margin: 80px auto;
+    }
+    pre code {
+      padding: 35px;
+      border-radius: 5px;
+      font-size: 15px;
+      background: rgba(0,0,0,0.1);
+      border: rgba(0,0,0,0.05) 5px solid;
+      max-width: 500px;
+    }
+
+
+    .main {
+      float: left;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    
+    .main h1 {
+      padding:20px 50px 10px;
+      float: left;
+      width: 100%;
+      font-size: 60px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-weight: 100;
+      margin: 0;
+      padding-top: 25px;
+      font-family: 'Noto Serif';
+      font-style: italic;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+    }
+   
+    .main h1.demo1 {
+      background: #1ABC9C;
+    }
+    
+    .reload.bell {
+      font-size: 12px;
+      padding: 20px;
+      width: 45px;
+      text-align: center;
+      height: 47px;
+      border-radius: 50px;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+    }
+    
+    .reload.bell #notification {
+      font-size: 25px;
+      line-height: 140%;
+    }
+    
+    .reload, .btn{
+      display: inline-block;
+      border: 4px solid #A2261E;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      background: #CC3126;
+      display: inline-block;
+      line-height: 100%;
+      padding: 0.7em;
+      text-decoration: none;
+      color: #0D2633;
+      width: 100px;
+      line-height: 140%;
+      font-size: 17px;
+      font-family: open sans;
+      font-weight: bold;
+    }
+    .reload:hover{
+      background: #A2261E;
+    }
+    .btn {
+      width: 200px;
+      color: #0D2633;
+      border: none;
+      margin-left: 10px;
+      background: #00B0FF;
+    }
+    .clear {
+      width: auto;
+    }
+    .btn:hover, .btn:hover {
+      background: #00CDFF;
+    }
+    .btns {
+      width: 410px;
+      margin: 50px auto;
+    }
+    .credit {
+      font-family: "noto serif";
+      font-style: italic;
+      text-align: center;
+      color: #3D5455;
+      color: rgba(255,255,255,0.35);
+      padding: 10px;
+      margin: 0 0 40px 0;
+      float: left;
+      width: 100%;
+      letter-spacing: 1px;
+    }
+    .credit a {
+      text-decoration: none;
+      font-weight: bold;
+      color: rgba(255,255,255,0.55);
+    }
+    
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      display: block;
+      padding: 7px;
+      width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: rgba(0,0,0,0.25);
+      font-weight: bold;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      -webkit-transition: all 200ms ease-out;
+      -moz-transition: all 200ms ease-out;
+      -o-transition: all 200ms ease-out;
+      transition: all 200ms ease-out;
+    }
+    .back:hover {
+      background: rgba(0,0,0,0.5);
+    }
+  
+    
+    .page-container {
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+    }
+    
+    .page-container p{
+      font-size: 21px;
+      font-weight: 100;
+      line-height: 180%;
+    }
+    
+    .page-container h3 {
+      font-family: "noto serif";
+      font-size: 23px;
+    }
+    
+    .gallery {
+      width: 500px;
+      height: 333px;
+      margin: 150px auto 100px;
+    }
+    
+    .navigation {
+      margin-bottom: 150px;
+    }
+    
+    .fg-card, .fg-card > img {
+      border-radius: 3px;
+    }
+    
+    .fg-caption {
+      color: white;
+      font-style: italic;
+      font-family:noto serif;
+      font-size: 24px;
+    }
+    
+	</style>
+	<script>
+	  $(document).ready( function() {
+	    $(".gallery").flipping_gallery({
+	      enableScroll: true
+	    });
+	    
+	    $(".next").click(function() {
+	      $(".gallery").flipForward();
+	      return false;
+	    });
+	    $(".prev").click(function() {
+	      $(".gallery").flipBackward();
+	      return false;
+	    });
+	  });
+		
+	</script>
+</head>
+<body>
+  <div class="wrapper">
+	  <div class="main">
+	    <div class="header">
+        <h1>jQuery Flipping Gallery</h1>
+        <h2>Create a Flipping Awesome 3D Gallery with One Function Call</h2>
+        <p class="credit">Created by <a href="http://www.thepetedesign.com">Pete R.</a>, Founder of <a href="http://www.bucketlistly.com" target="_blank">BucketListly</a></p>
+        <div class="btns">
+  	      <a class="reload btn" href="https://github.com/peachananr/flipping_gallery">Download on Github</a>
+  	    </div>
+  	  </div>
+  	  
+      <div class="page-container">
+      <div class="pointer2">Click Me</div>  
+      <div class="pointer">Scroll Me</div>  
+        <div class="gallery">
+          <a href="#" data-caption="Trekking in Chhomrong, Himalayas, Nepal"><img src="img/1.jpg"></a>
+          <a href="#" data-caption="Ghandruk, getting a good feel of the local"><img src="img/2.jpg"></a>
+          <a href="#" data-caption="This was a thriller!"><img src="img/3.jpg"></a>
+          <a href="#" data-caption="You can always find a decent coffee shop, even in the Himalayas!"><img src="img/4.jpg"></a>
+          <a href="#" data-caption="Beautiful People, Beautiful Country"><img src="img/5.jpg"></a>
+          <a href="#" data-caption="Trekking in Chhomrong, Himalayas, Nepal"><img src="img/1.jpg"></a>
+          <a href="#" data-caption="Ghandruk, getting a good feel of the local"><img src="img/2.jpg"></a>
+          <a href="#" data-caption="This was a thriller!"><img src="img/3.jpg"></a>
+          <a href="#" data-caption="You can always find a decent coffee shop, even in the Himalayas!"><img src="img/4.jpg"></a>
+          <a href="#" data-caption="Beautiful People, Beautiful Country"><img src="img/5.jpg"></a>
+        </div>
+        
+
+        <div class="navigation">
+          <a href="#" class="btn prev">Previous</a>
+          <a href="#" class="btn next">Next</a>
+        </div>
+      </div>
+    </div>
+    <a class="back" href="http://www.thepetedesign.com/#design">Back to The Pete Design</a>
+    <a href="https://github.com/peachananr/flipping_gallery"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 15;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  </div>
+</body>
+</html>

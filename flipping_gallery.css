@@ -1,0 +1,55 @@
+.fg-body {
+  position: relative;
+}
+
+.fg-card {
+  position: absolute;
+  -webkit-transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0%;
+  -o-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  display: block;
+  border: 4px solid white;
+  opacity: 1;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.fg-card.animate {
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.fg-card.active {
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+.fg-card img{
+  display: block;
+}
+
+.fg-card.fg-flipping {
+  -o-transform: rotateX(180deg) !important;
+  -webkit-transform: rotateX(180deg) !important;
+  -moz-transform: rotateX(180deg) !important;
+  transform: rotateX(180deg) !important;
+  opacity: 0;
+}
+
+.fg-caption {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+  top: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
+}
