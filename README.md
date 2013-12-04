@@ -80,7 +80,7 @@ You can manually trigger the gallery to flip backward to the next photo by calli
 
 ````javascript
 $(".gallery").flipBackward();
-
+````
 Now your website will be equipped with a flipping awesome gallery unlike others. Stay tuned for more updates.
 
 If you want to see more of my plugins, visit [The Pete Design](http://www.thepetedesign.com/#design), or follow me on [Twitter](http://www.twitter.com/peachananr) and [Github](http://www.github.com/peachananr).
