@@ -2,6 +2,10 @@
   position: relative;
 }
 
+body {
+  -webkit-transform-style: preserve-3d;
+   -webkit-backface-visibility: hidden;
+}
 .fg-card {
   position: absolute;
   -webkit-transform-origin: 50% 0%;
@@ -11,9 +15,6 @@
   display: block;
   border: 4px solid white;
   opacity: 1;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  perspective: 800px;
 }
 
 .fg-card.animate {
