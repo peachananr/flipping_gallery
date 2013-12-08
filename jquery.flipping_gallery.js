@@ -1,5 +1,5 @@
 /* ===========================================================
- * jquery-flipping_gallery.js v1
+ * jquery-flipping_gallery.js v1.1
  * ===========================================================
  * Copyright 2013 Pete Rojwongsuriya.
  * http://www.thepetedesign.com
@@ -15,10 +15,12 @@
   
   var defaults = {
     direction: "forward",
+    flipDirection: "bottom",
     selector: "> a",
     spacing: 10,
     showMaximum: 15,
-    enableScroll: true
+    enableScroll: true,
+    autoplay: false
 	};
 	
 	
@@ -41,7 +43,7 @@
       var el = $(this);
       $.each(el.find(settings.selector), function(i) {
         if (i == 0) {
-          $(this).addClass("active")
+          $(this).addClass("active " + settings.flipDirection)
           el.find(".fg-caption").remove()
           if($(this).data("caption")) {
             el.append("<div class='fg-caption' style='opacity: 0;'>" + $(this).attr("data-caption") + "</div>")
@@ -108,7 +110,7 @@
         var card = el.find("> .fg-card").first();
         card.addClass("fg-flipping").css("opacity", "0");
         card.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-          var save_card = card.removeClass("animate active fg-flipping [class^='fg-count-']").clone();
+          var save_card = card.removeClass("animate active fg-flipping [class^='fg-count-'] " + settings.flipDirection).clone();
           card.remove();
           el.append(save_card.hide());
           
@@ -131,11 +133,11 @@
         var prev_card = el.find("> .fg-card").last();
         var new_prev_card = prev_card.clone()
         prev_card.remove()
-        el.find(".active").removeClass("active")
+        el.find(".active").removeClass("active "  + settings.flipDirection)
         el.prepend(new_prev_card.attr("style", "").css({
           "opacity": "0",
           "z-index": "99"
-        }).hide().addClass("active fg-flipping"))
+        }).hide().addClass("active fg-flipping "  + settings.flipDirection))
         el.find("> .fg-card.active").addClass("animate").show().removeClass("fg-flipping").css("opacity", "1")
         space = 0;
         el.realignCards();
@@ -155,6 +157,14 @@
         init_scroll(event, delta);
       });
     }
+    
+    if(settings.autoplay != 0 && settings.autoplay != false) {
+      setInterval(function() {
+        
+        if($(el.selector + ":hover").length < 1) el.flipForward()
+      }, settings.autoplay);
+    }
+    
   }
 }(window.jQuery);
 
