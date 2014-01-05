@@ -88,4 +88,4 @@ Now your website will be equipped with a flipping awesome gallery unlike others.
 If you want to see more of my plugins, visit [The Pete Design](http://www.thepetedesign.com/#design), or follow me on [Twitter](http://www.twitter.com/peachananr) and [Github](http://www.github.com/peachananr).
 
 ## Other Resources
-- Tutorial (Coming Soon)
+- [Tutorial](http://www.onextrapixel.com/2013/12/19/create-a-flipping-awesome-3d-gallery-with-jquery-flipping-gallery/)
