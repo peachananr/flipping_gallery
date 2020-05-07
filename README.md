@@ -2,10 +2,8 @@
 Create a simple but beautiful 3D flipping gallery with on JS call
 Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](http://www.bucketlistly.com)
 
-[![Flipping Gallery](http://www.thepetedesign.com/images/flipping_gallery_image.png "Flipping Gallery")](http://www.thepetedesign.com/demos/flipping_gallery_demo.html)
-
 ## Demo
-[View demo](http://www.thepetedesign.com/demos/flipping_gallery_demo.html)
+[View demo](http://peachananr.github.io/flipping_gallery/demo/flipping_gallery_demo.html)
 
 ## Compatibility
 Modern browsers such as Chrome, Firefox, and Safari on both desktop and smartphones have been tested. I have not tested this on IE.
